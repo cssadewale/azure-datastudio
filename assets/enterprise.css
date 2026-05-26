@@ -1,0 +1,175 @@
+/* ============================================================
+   Azure DataStudio Stimulator — ENTERPRISE LAYER STYLES
+   Loaded after the base app. Uses the app's CSS variables.
+   ============================================================ */
+
+/* --- Enterprise badge in header --- */
+.ent-badge{
+  display:inline-flex;align-items:center;gap:4px;
+  font-family:var(--mono,monospace);font-size:9px;font-weight:700;
+  padding:2px 7px;border-radius:20px;white-space:nowrap;
+  background:linear-gradient(130deg,#0078d4,#5c2d91);
+  color:#fff;border:1px solid rgba(255,255,255,.15);
+}
+
+/* --- Enterprise menu button --- */
+.ent-btn{
+  display:inline-flex;align-items:center;gap:4px;
+  padding:4px 9px;border-radius:7px;font-size:11px;font-weight:700;
+  cursor:pointer;border:1px solid rgba(0,120,212,.35);
+  background:rgba(0,120,212,.10);color:#00bcf2;transition:all .13s;
+}
+.ent-btn:hover{background:rgba(0,120,212,.22);color:#fff}
+
+/* --- Generic modal --- */
+.ent-modal-backdrop{
+  position:fixed;inset:0;background:rgba(0,0,0,.7);
+  display:flex;align-items:center;justify-content:center;
+  z-index:9999;backdrop-filter:blur(4px);
+  animation:entFade .15s ease;
+}
+@keyframes entFade{from{opacity:0}to{opacity:1}}
+.ent-modal{
+  background:#0d1220;border:1px solid #1e3a5f;border-radius:10px;
+  width:min(720px,92vw);max-height:88vh;display:flex;flex-direction:column;
+  box-shadow:0 20px 60px rgba(0,0,0,.6);overflow:hidden;
+  color:#e4ecf7;font-family:'Syne',sans-serif;
+}
+.ent-modal-hdr{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 16px;border-bottom:1px solid #1a2d4d;
+  background:#111827;
+}
+.ent-modal-hdr h3{font-size:14px;font-weight:700;letter-spacing:-.2px}
+.ent-modal-close{
+  background:none;border:none;color:#8a9bb8;cursor:pointer;
+  font-size:18px;padding:2px 8px;border-radius:5px;
+}
+.ent-modal-close:hover{color:#fff;background:#1a2744}
+.ent-modal-body{padding:16px;overflow:auto;font-size:12px;line-height:1.55}
+.ent-modal-footer{
+  padding:10px 16px;border-top:1px solid #1a2d4d;
+  display:flex;gap:8px;justify-content:flex-end;background:#111827;
+}
+
+/* --- Form bits --- */
+.ent-row{display:flex;flex-direction:column;gap:4px;margin-bottom:12px}
+.ent-row label{font-size:11px;color:#8a9bb8;font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+.ent-input,.ent-select,.ent-textarea{
+  background:#162033;border:1px solid #1e3a5f;color:#e4ecf7;
+  padding:7px 10px;border-radius:6px;font-family:var(--mono,monospace);
+  font-size:12px;width:100%;outline:none;transition:border-color .13s;
+}
+.ent-input:focus,.ent-select:focus,.ent-textarea:focus{border-color:#0078d4}
+.ent-textarea{min-height:90px;resize:vertical}
+.ent-help{font-size:10px;color:#4a5f7a;margin-top:2px}
+
+/* --- Buttons --- */
+.ent-pbtn{
+  background:linear-gradient(130deg,#0078d4,#5c2d91);color:#fff;
+  border:none;padding:7px 14px;border-radius:6px;font-weight:700;
+  font-size:11px;cursor:pointer;transition:opacity .13s;
+}
+.ent-pbtn:hover{opacity:.88}
+.ent-pbtn:disabled{opacity:.4;cursor:not-allowed}
+.ent-sbtn{
+  background:#1a2744;color:#8a9bb8;border:1px solid #1e3a5f;
+  padding:7px 14px;border-radius:6px;font-weight:600;
+  font-size:11px;cursor:pointer;
+}
+.ent-sbtn:hover{color:#fff;background:#1e3a5f}
+.ent-dbtn{
+  background:rgba(255,51,102,.12);color:#ff3366;border:1px solid rgba(255,51,102,.35);
+  padding:7px 14px;border-radius:6px;font-weight:700;font-size:11px;cursor:pointer;
+}
+.ent-dbtn:hover{background:rgba(255,51,102,.22)}
+
+/* --- Toasts --- */
+#ent-toasts{position:fixed;bottom:18px;right:18px;display:flex;flex-direction:column;gap:8px;z-index:10000}
+.ent-toast{
+  background:#0d1220;border-left:4px solid #00bcf2;border-radius:6px;
+  padding:10px 14px;color:#e4ecf7;font-family:'Syne',sans-serif;font-size:12px;
+  box-shadow:0 8px 24px rgba(0,0,0,.5);min-width:240px;max-width:380px;
+  animation:entToastIn .25s ease;
+}
+.ent-toast.ok{border-color:#00e676}
+.ent-toast.warn{border-color:#ffb020}
+.ent-toast.err{border-color:#ff3366}
+@keyframes entToastIn{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:none}}
+
+/* --- Login gate --- */
+#ent-gate{
+  position:fixed;inset:0;background:#0a0e1a;display:flex;
+  align-items:center;justify-content:center;z-index:99999;
+  font-family:'Syne',sans-serif;color:#e4ecf7;
+}
+.ent-gate-card{
+  background:#0d1220;border:1px solid #1e3a5f;border-radius:12px;
+  padding:32px;width:min(420px,92vw);box-shadow:0 20px 60px rgba(0,0,0,.6);
+}
+.ent-gate-card h2{font-size:20px;margin-bottom:6px;
+  background:linear-gradient(130deg,#0078d4,#5c2d91);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.ent-gate-card p{color:#8a9bb8;font-size:12px;margin-bottom:18px}
+
+/* --- Audit log entries --- */
+.ent-audit-row{
+  display:grid;grid-template-columns:140px 90px 90px 1fr;gap:10px;
+  padding:8px 6px;border-bottom:1px solid #162033;font-size:11px;
+  font-family:var(--mono,monospace);
+}
+.ent-audit-row:hover{background:#111827}
+.ent-audit-row .ts{color:#4a5f7a}
+.ent-audit-row .actor{color:#00bcf2}
+.ent-audit-row .act{color:#ffb020;font-weight:700}
+.ent-audit-row .det{color:#e4ecf7;word-break:break-all}
+
+/* --- Role pill in header --- */
+.ent-role-pill{
+  display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:20px;
+  font-family:var(--mono,monospace);font-size:9px;font-weight:700;
+}
+.ent-role-admin{background:rgba(255,51,102,.12);color:#ff3366;border:1px solid rgba(255,51,102,.3)}
+.ent-role-analyst{background:rgba(0,120,212,.12);color:#00bcf2;border:1px solid rgba(0,120,212,.3)}
+.ent-role-viewer{background:rgba(138,155,184,.12);color:#8a9bb8;border:1px solid rgba(138,155,184,.3)}
+
+/* --- Scheduled jobs --- */
+.ent-job{
+  background:#111827;border:1px solid #1a2d4d;border-radius:6px;
+  padding:10px 12px;margin-bottom:8px;
+}
+.ent-job-title{font-weight:700;font-size:12px;color:#e4ecf7;margin-bottom:4px}
+.ent-job-meta{font-size:10px;color:#4a5f7a;display:flex;gap:10px;flex-wrap:wrap}
+.ent-job-actions{display:flex;gap:6px;margin-top:8px}
+
+/* --- Telemetry cards --- */
+.ent-tcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:14px}
+.ent-tcard{
+  background:#111827;border:1px solid #1a2d4d;border-radius:7px;padding:10px 12px;
+}
+.ent-tcard .label{font-size:9px;color:#4a5f7a;text-transform:uppercase;letter-spacing:.5px;font-weight:700}
+.ent-tcard .value{font-size:18px;color:#00bcf2;font-weight:700;margin-top:3px;font-family:var(--mono,monospace)}
+
+/* --- Tabs inside modal --- */
+.ent-tabs{display:flex;gap:0;border-bottom:1px solid #1a2d4d;margin-bottom:14px}
+.ent-tab{
+  background:none;border:none;color:#8a9bb8;padding:8px 14px;cursor:pointer;
+  font-size:11px;font-weight:600;border-bottom:2px solid transparent;
+}
+.ent-tab.active{color:#00bcf2;border-bottom-color:#00bcf2}
+.ent-tab:hover{color:#fff}
+
+/* --- Diff highlighting --- */
+.ent-diff-add{background:rgba(0,230,118,.12);color:#00e676;padding:1px 3px;border-radius:3px}
+.ent-diff-rem{background:rgba(255,51,102,.12);color:#ff3366;padding:1px 3px;border-radius:3px;text-decoration:line-through}
+
+/* --- Read-only lock indicator --- */
+body.ent-readonly::before{
+  content:"🔒 READ-ONLY MODE — Viewer role";
+  position:fixed;top:44px;left:0;right:0;z-index:200;
+  background:rgba(255,176,32,.15);color:#ffb020;
+  font-size:10px;font-weight:700;letter-spacing:.5px;
+  text-align:center;padding:4px;border-bottom:1px solid rgba(255,176,32,.3);
+  font-family:'Syne',sans-serif;
+}
+body.ent-readonly #editor{pointer-events:none;opacity:.6}
