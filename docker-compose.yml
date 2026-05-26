@@ -1,0 +1,16 @@
+# Free self-hosted deployment.
+# Run:   docker compose up -d
+# Visit: http://localhost:8080
+services:
+  ads:
+    build: .
+    image: ads-enterprise:latest
+    container_name: ads-enterprise
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
