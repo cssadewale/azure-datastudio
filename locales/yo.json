@@ -1,0 +1,27 @@
+{
+  "lang": "yo",
+  "name": "Yorùbá",
+  "strings": {
+    "ent.title": "Ibùdó Iléeṣẹ́",
+    "ent.overview": "Àkópọ̀",
+    "ent.audit": "Ìwé Àyẹ̀wò",
+    "ent.roles": "Ipa",
+    "ent.policies": "Ìlànà",
+    "ent.jobs": "Iṣẹ́ Tó Ti Ṣe Tẹ́lẹ̀",
+    "ent.webhook": "Webhook",
+    "ent.backup": "Àfipamọ́",
+    "ent.telemetry": "Ìṣirò",
+    "gate.locked": "Ibi-iṣẹ́ Ti Ti",
+    "gate.enterPass": "Tẹ ọ̀rọ̀ àṣínà sí ibi-iṣẹ́ yìí.",
+    "gate.unlock": "Ṣí",
+    "policy.blockDrop": "Dí DROP fún àwọn tí kì í ṣe admin",
+    "policy.confirmDelete": "Dí DELETE láìsí WHERE",
+    "btn.run": "Sá",
+    "btn.save": "Fipamọ́",
+    "btn.cancel": "Fagilé",
+    "btn.export": "Mú jáde",
+    "btn.import": "Mú wọlé",
+    "msg.saved": "Ti fipamọ́",
+    "msg.blocked": "Ti dí"
+  }
+}

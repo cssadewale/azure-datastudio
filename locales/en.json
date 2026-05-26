@@ -1,0 +1,27 @@
+{
+  "lang": "en",
+  "name": "English",
+  "strings": {
+    "ent.title": "Enterprise Hub",
+    "ent.overview": "Overview",
+    "ent.audit": "Audit Log",
+    "ent.roles": "Roles",
+    "ent.policies": "Policies",
+    "ent.jobs": "Scheduled Jobs",
+    "ent.webhook": "Webhook",
+    "ent.backup": "Backup",
+    "ent.telemetry": "Telemetry",
+    "gate.locked": "Workspace Locked",
+    "gate.enterPass": "Enter passphrase to access this workspace.",
+    "gate.unlock": "Unlock",
+    "policy.blockDrop": "Block DROP for non-admins",
+    "policy.confirmDelete": "Block DELETE without WHERE",
+    "btn.run": "Run",
+    "btn.save": "Save",
+    "btn.cancel": "Cancel",
+    "btn.export": "Export",
+    "btn.import": "Import",
+    "msg.saved": "Saved",
+    "msg.blocked": "Blocked"
+  }
+}
