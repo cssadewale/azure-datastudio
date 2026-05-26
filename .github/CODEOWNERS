@@ -1,0 +1,7 @@
+# Default owners for everything in the repo.
+*       @cssadewale
+
+# Anything in scripts/ or assets/ (Enterprise layer) requires owner review.
+/scripts/   @cssadewale
+/assets/    @cssadewale
+/docs/      @cssadewale
