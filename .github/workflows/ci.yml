@@ -1,0 +1,55 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    name: Validate HTML & links
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install validators (no lockfile required)
+        run: |
+          npm install --no-save html-validate@8 markdown-link-check@3
+
+      - name: Validate index.html
+        run: npx html-validate index.html || true   # report-only, do not fail build
+
+      - name: Check links in markdown
+        run: |
+          for f in $(find . -maxdepth 2 -name "*.md"); do
+            echo "Checking $f"
+            npx markdown-link-check -q "$f" || true
+          done
+
+      - name: Show file sizes
+        run: ls -lhS index.html assets/ scripts/
+
+  security-scan:
+    name: Basic security scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Look for forbidden patterns
+        run: |
+          set -e
+          echo "Scanning for accidental eval(...) usage in app source..."
+          if grep -nE "eval\s*\(" scripts/enterprise.js index.html ; then
+            echo "❌ eval() found"; exit 1
+          fi
+          echo "Scanning for AI API endpoints (project policy: no AI APIs)..."
+          if grep -nEi "openai\.com|anthropic\.com|api\.together\.xyz|generativelanguage|cohere\.ai" index.html scripts/enterprise.js ; then
+            echo "❌ AI API endpoint found"; exit 1
+          fi
+          echo "✅ Clean"
